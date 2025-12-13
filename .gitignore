@@ -1,0 +1,28 @@
+# Deno
+.deno/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build outputs
+dist/
+build/
+*.js.map
+
+# Dependencies (if vendored)
+vendor/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Claude Code local settings
+.claude/settings.local.json
