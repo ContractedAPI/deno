@@ -1,0 +1,94 @@
+rules:
+  type-enum:
+    - 2
+    - always
+    - - build     # build system changes
+      - infra     # CI/CD, VCS, deployment, etc.
+      - devtools  # developer tools not covered by `infra`
+
+      - docs      # non-meta documentation changes
+      - meta      # meta documentation changes or manifest-related changes
+
+      - feat      # new feature
+      - refactor  # refactor without introducing new features
+      - fix       # "fixes issue #123" or "fixes #123"
+      - revert    # "reverts commit <hash/head>" or "reverts <hash/head>"
+      - perf      # performance improvement
+
+      - test      # add, update, or work on tests
+      - clean     # formatting, linting, etc. (not limited to style)
+      - style     # non-cleaning non-refactor formatting changes
+
+prompt:
+  settings: {}
+  messages:
+    skip: ':skip'
+    max: 'upper %d chars'
+    min: '%d chars at least'
+    emptyWarning: 'can not be empty'
+    upperLimitWarning: 'over limit'
+    lowerLimitWarning: 'below limit'
+  questions:
+    type:
+      description: "Select the type of change that you're committing:"
+      enum:
+        build:
+          description: Changes that affect the build system or external dependencies
+          title: Build system changes
+          emoji: 🛠
+        infra:
+          description: CI/CD, VCS, deployment, etc.
+          title: Infrastructure
+          emoji: ⚙️
+        devtools:
+          description: Developer tools not covered by infra
+          title: Developer tools
+          emoji: 🔧
+        docs:
+          description: Non-meta documentation changes
+          title: Documentation
+          emoji: 📚
+        meta:
+          description: Meta documentation changes or manifest-related changes
+          title: Meta changes
+          emoji: 📝
+        feat:
+          description: A new feature
+          title: Features
+          emoji: ✨
+        refactor:
+          description: A code change that neither fixes a bug nor adds a feature
+          title: Code Refactoring
+          emoji: 📦
+        fix:
+          description: A bug fix
+          title: Bug Fixes
+          emoji: 🐛
+        revert:
+          description: Reverts a previous commit
+          title: Reverts
+          emoji: 🗑
+        perf:
+          description: A code change that improves performance
+          title: Performance Improvements
+          emoji: 🚀
+        test:
+          description: Adding missing tests or correcting existing tests
+          title: Tests
+          emoji: 🚨
+        clean:
+          description: Formatting, linting, etc. (not limited to style)
+          title: Cleanup
+          emoji: 🧹
+        style:
+          description: Non-cleaning non-refactor formatting changes
+          title: Styles
+          emoji: 💎
+    scope:
+      description: 'What is the scope of this change (e.g. component or file name)?'
+    subject:
+      description: 'Write a short, imperative tense description of the change:'
+    body:
+      description: 'Provide a longer description of the change:'
+    footer:
+      description: 'List any issues fixed by this change:'
