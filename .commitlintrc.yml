@@ -3,6 +3,7 @@ rules:
     - 2
     - always
     - - build     # build system changes
+      - agents    # changes related to agents or agent orchestration
       - infra     # CI/CD, VCS, deployment, etc.
       - devtools  # developer tools not covered by `infra`
 
@@ -36,6 +37,10 @@ prompt:
           description: Changes that affect the build system or external dependencies
           title: Build system changes
           emoji: 🛠
+        agents:
+          description: Changes related to agents or agent orchestration
+          title: Agents and Orchestration
+          emoji: 🤖
         infra:
           description: CI/CD, VCS, deployment, etc.
           title: Infrastructure

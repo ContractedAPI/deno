@@ -83,8 +83,17 @@ Location: `C:\Users\smart\Documents\Repos\ContractedAPI\deno.worktrees`
 - **DO NOT create branches or worktrees until explicitly told to commence work**
 
 ### Commit Standards
-- Conventional commit style (no scopes)
-- Micro-commit style: ideally ~20 lines, max ~100 lines per commit
+Follow **conventional commit** style with **micro-commits**:
+- **Ideal**: ~20 lines changed
+- **Maximum**: ~100 lines changed
+
+**Before writing any commit message, read `.commitlintrc.yml` in the project root** to get the current list of valid commit types and their descriptions.
+
+```bash
+cat "$(git rev-parse --show-toplevel)/.commitlintrc.yml"
+```
+
+Use the `type-enum` list and `prompt.questions.type.enum` descriptions to select the appropriate type for your change.
 
 ### Merge Process
 When a child item is complete (checklist done + code review satisfied):
