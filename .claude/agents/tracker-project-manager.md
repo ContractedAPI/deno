@@ -176,30 +176,46 @@ When a child item signals completion, you MUST follow this process:
    # Check if parent worktree exists
    git worktree list | grep <parent-path>
 
-   # If not, create it
-   git worktree add -b <parent-branch> <parent-worktree-path>
+   # If not, create it (branching from main to get latest configs)
+   git worktree add -b <parent-branch> <parent-worktree-path> main
    ```
-2. Navigate to the **parent's worktree** (not base repo): `cd <parent-worktree-path>`
-3. Ensure parent worktree is on the correct parent branch: `git branch --show-current`
-4. Merge child branch with a merge commit: `git merge --no-ff <child-branch> -m "merge: <description>"`
-5. Delete child worktree: `git worktree remove <child-worktree-path>`
-6. **KEEP the child branch** (do not delete)
-7. Rebase all uncompleted sibling branches onto the new merge commit
+2. Navigate to the **child's worktree**: `cd <child-worktree-path>`
+3. **Rebase child onto main** to get latest agent configs and updates:
+   ```bash
+   git rebase main
+   ```
+4. Navigate to the **parent's worktree**: `cd <parent-worktree-path>`
+5. **Rebase parent onto main** (if parent already existed):
+   ```bash
+   git rebase main
+   ```
+6. **Merge child into parent** with fast-forward (child is already rebased):
+   ```bash
+   git merge --ff-only <child-branch>
+   ```
+7. Delete child worktree: `git worktree remove <child-worktree-path>`
+8. **KEEP the child branch** (do not delete)
+9. Rebase all uncompleted sibling branches onto main
 
 **For Project merges (project → main) - ONLY EXCEPTION:**
-1. Ensure base repo is on `main` branch: `cd C:\Users\smart\Documents\Repos\ContractedAPI\deno && git branch --show-current`
-2. If not on main: `git checkout main`
-3. Merge project branch with a merge commit: `git merge --no-ff <project-branch> -m "merge: <description>"`
-4. Delete project worktree: `git worktree remove <project-worktree-path>`
-5. **KEEP the project branch** (do not delete)
+1. Navigate to project worktree
+2. Rebase project onto main: `git rebase main`
+3. Navigate to base repo: `cd C:\Users\smart\Documents\Repos\ContractedAPI\deno`
+4. Ensure on main: `git branch --show-current` (should be `main`)
+5. Fast-forward merge: `git merge --ff-only <project-branch>`
+6. Delete project worktree: `git worktree remove <project-worktree-path>`
+7. **KEEP the project branch** (do not delete)
 
 **Merge Conflict Resolution:**
-- You may resolve merge conflicts yourself unless they indicate the coding agent needs to fix code
+- During rebase: Resolve conflicts, `git rebase --continue`
+- You may resolve conflicts yourself unless they indicate the coding agent needs to fix code
+- If conflicts are code-related, abort and request coding agent fix
 
 **CRITICAL:**
 - Never merge without completing Steps 1 and 2 first
-- Use merge commits (`--no-ff`), NOT fast-forward or rebase-merge
-- **EVERY branch MUST have a worktree - if parent worktree doesn't exist, create it first**
+- **ALWAYS rebase onto main first** to pull in latest agent configs and changes
+- Use fast-forward merges after rebase (keeps linear history)
+- **EVERY branch MUST have a worktree - if parent worktree doesn't exist, create it from main**
 - Base repo is ONLY used for project → main merges
 - ALL other merges happen in parent worktrees
 
