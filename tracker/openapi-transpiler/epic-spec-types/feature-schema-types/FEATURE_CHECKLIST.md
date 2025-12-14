@@ -17,7 +17,9 @@ gantt
 > **Note**: Tasks will be defined when this feature is commenced.
 
 - [x] Implement JSON serializable types
-- [ ] Implement FromSchema wrapper with `& JSONObject` correction
+- [x] Implement FromSchema wrapper with `& JSONObject` correction
+  - Branch: `openapi-transpiler/epic-spec-types/feature-schema-types/task-from-schema/task`
+  - [task-from-schema](./task-from-schema/)
 - [ ] Create mod.ts with public exports
 - [ ] Add JSDoc documentation
 
