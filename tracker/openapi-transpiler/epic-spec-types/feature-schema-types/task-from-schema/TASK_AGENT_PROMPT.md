@@ -1,6 +1,6 @@
 # Task: from-schema - Agent Prompt
 
-> **Worktree Location**: (to be created when work commences)
+> **Worktree Location**: `C:\Users\smart\Documents\Repos\ContractedAPI\deno.worktrees\OpenapiTranspiler.EpicSpecTypes.FeatureSchemaTypes.TaskFromSchema`
 > **Root Project Location**: `C:\Users\smart\Documents\Repos\ContractedAPI\deno`
 > **Branch**: `openapi-transpiler/epic-spec-types/feature-schema-types/task-from-schema/task`
 
