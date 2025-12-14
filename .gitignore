@@ -1,6 +1,11 @@
 # Deno
 .deno/
 
+# Node.js (this is a Deno project)
+# Note: node_modules is ignored, but package.json/package-lock.json are NOT
+# If those files appear, they should be removed and ported to deno.json
+node_modules/
+
 # IDE
 .idea/
 .vscode/
