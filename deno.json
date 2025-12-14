@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "json-schema-to-ts": "npm:json-schema-to-ts@^3.0.0"
+  }
+}
