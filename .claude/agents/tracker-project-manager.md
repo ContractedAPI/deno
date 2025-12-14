@@ -80,14 +80,37 @@ Location: `C:\Users\smart\Documents\Repos\ContractedAPI\deno.worktrees`
 - Example: `AuthSystem.UserManagement.LoginForm.ValidateInput`
 
 ### Branch/Worktree Creation
+
+**ABSOLUTE RULE: EVERY branch MUST have a worktree. NO EXCEPTIONS.**
+
 - **DO NOT create branches or worktrees until explicitly told to commence work**
-- **CRITICAL: Create branch and worktree atomically using:**
+- **NEVER use `git checkout -b` or `git branch` commands**
+- **ALWAYS use `git worktree add -b` to create branch + worktree atomically:**
   ```bash
   git worktree add -b <branch-name> <full-worktree-path>
+  ```
+- **If a branch exists without a worktree, create the worktree:**
+  ```bash
+  git worktree add <full-worktree-path> <existing-branch-name>
   ```
 - **NEVER change the branch of the base repo at `C:\Users\smart\Documents\Repos\ContractedAPI\deno`**
 - **The base repo MUST ALWAYS stay on `main`**
 - All development work happens exclusively in worktrees
+
+**Examples:**
+```bash
+# Creating new task branch + worktree (correct)
+git worktree add -b openapi-transpiler/epic-spec-types/feature-schema-types/task-json-types/task \
+  C:\Users\smart\Documents\Repos\ContractedAPI\deno.worktrees\OpenapiTranspiler.EpicSpecTypes.FeatureSchemaTypes.TaskJsonTypes
+
+# Creating new feature branch + worktree for merging (correct)
+git worktree add -b openapi-transpiler/epic-spec-types/feature-schema-types/feature \
+  C:\Users\smart\Documents\Repos\ContractedAPI\deno.worktrees\OpenapiTranspiler.EpicSpecTypes.FeatureSchemaTypes
+
+# WRONG - never do this
+git checkout -b openapi-transpiler/epic-spec-types/feature-schema-types/feature  # ❌ FORBIDDEN
+git branch openapi-transpiler/epic-spec-types/feature-schema-types/feature        # ❌ FORBIDDEN
+```
 
 ### Commit Standards
 Follow **conventional commit** style with **micro-commits**:
@@ -141,18 +164,27 @@ When a child item signals completion, you MUST follow this process:
 **Step 3: Merge (ONLY after review approval)**
 
 **For Task/Feature/Epic merges (child → parent):**
-1. Navigate to the **parent's worktree** (not base repo)
-2. Ensure parent worktree is on the correct parent branch
-3. Merge child branch with a merge commit: `git merge --no-ff <child-branch> -m "merge: <description>"`
-4. Delete child worktree: `git worktree remove <worktree-path>`
-5. **KEEP the child branch** (do not delete)
-6. Rebase all uncompleted sibling branches onto the new merge commit
+1. **Create parent worktree if it doesn't exist:**
+   ```bash
+   # Check if parent worktree exists
+   git worktree list | grep <parent-path>
 
-**For Project merges (project → main):**
-1. Ensure base repo is on `main` branch
-2. Merge project branch with a merge commit: `git merge --no-ff <project-branch> -m "merge: <description>"`
-3. Delete project worktree: `git worktree remove <worktree-path>`
-4. **KEEP the project branch** (do not delete)
+   # If not, create it
+   git worktree add -b <parent-branch> <parent-worktree-path>
+   ```
+2. Navigate to the **parent's worktree** (not base repo): `cd <parent-worktree-path>`
+3. Ensure parent worktree is on the correct parent branch: `git branch --show-current`
+4. Merge child branch with a merge commit: `git merge --no-ff <child-branch> -m "merge: <description>"`
+5. Delete child worktree: `git worktree remove <child-worktree-path>`
+6. **KEEP the child branch** (do not delete)
+7. Rebase all uncompleted sibling branches onto the new merge commit
+
+**For Project merges (project → main) - ONLY EXCEPTION:**
+1. Ensure base repo is on `main` branch: `cd C:\Users\smart\Documents\Repos\ContractedAPI\deno && git branch --show-current`
+2. If not on main: `git checkout main`
+3. Merge project branch with a merge commit: `git merge --no-ff <project-branch> -m "merge: <description>"`
+4. Delete project worktree: `git worktree remove <project-worktree-path>`
+5. **KEEP the project branch** (do not delete)
 
 **Merge Conflict Resolution:**
 - You may resolve merge conflicts yourself unless they indicate the coding agent needs to fix code
@@ -160,8 +192,9 @@ When a child item signals completion, you MUST follow this process:
 **CRITICAL:**
 - Never merge without completing Steps 1 and 2 first
 - Use merge commits (`--no-ff`), NOT fast-forward or rebase-merge
-- Base repo stays on `main` except when merging projects into main
-- All other merges happen in parent worktrees
+- **EVERY branch MUST have a worktree - if parent worktree doesn't exist, create it first**
+- Base repo is ONLY used for project → main merges
+- ALL other merges happen in parent worktrees
 
 ## Your Coding Boundaries
 
