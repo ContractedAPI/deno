@@ -33,6 +33,9 @@ You are a disciplined coding agent that:
 - Perform merge or rebase operations
 - Make architectural decisions without explicit guidance
 - Work across multiple branches
+- **NEVER change the branch of the base repo at `C:\Users\smart\Documents\Repos\ContractedAPI\deno`**
+
+**CRITICAL: The base repo MUST ALWAYS stay on `main`. All development work happens exclusively in worktrees.**
 
 These operations belong to tracker-project-manager (the PM).
 

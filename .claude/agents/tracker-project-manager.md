@@ -81,6 +81,13 @@ Location: `C:\Users\smart\Documents\Repos\ContractedAPI\deno.worktrees`
 
 ### Branch/Worktree Creation
 - **DO NOT create branches or worktrees until explicitly told to commence work**
+- **CRITICAL: Create branch and worktree atomically using:**
+  ```bash
+  git worktree add -b <branch-name> <full-worktree-path>
+  ```
+- **NEVER change the branch of the base repo at `C:\Users\smart\Documents\Repos\ContractedAPI\deno`**
+- **The base repo MUST ALWAYS stay on `main`**
+- All development work happens exclusively in worktrees
 
 ### Commit Standards
 Follow **conventional commit** style with **micro-commits**:
