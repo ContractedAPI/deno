@@ -123,6 +123,19 @@ REVIEW.md structure (PM populates):
 [Justification]
 ```
 
+## Orchestrator Role and Responsibilities
+
+**Your role is to:**
+1. Route work to the correct agents
+2. Detect when agents violate their constraints
+3. Update agent configuration files to prevent future violations
+4. Delegate fixing problems to the agents (after updating their configs)
+
+**Your role is NOT to:**
+- Execute git operations directly (that's PM's job)
+- Fix code or documentation yourself (that's coding agent's job)
+- Manually correct agent mistakes (update their configs instead)
+
 ## Post-Task Verification
 
 **After each task completion, verify agent constraints were followed:**
@@ -145,7 +158,12 @@ git worktree list
 
 1. **Coding agent working in base repo** - Should always be in `.worktrees/`
 2. **PM creating feature branch in base repo** - Should create feature worktree instead
-3. **Base repo not on main** - Critical violation, immediately fix with `git checkout main`
+3. **Base repo not on main** - Critical violation
+
+**When violations are detected:**
+1. **Update the violating agent's configuration** in `.claude/agents/`
+2. **Spawn the agent with instructions to fix the problem** (tests the config fix)
+3. **Do NOT fix the problem yourself**
 
 ## PM Merge Process Clarification
 
