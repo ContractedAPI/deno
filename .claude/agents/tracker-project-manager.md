@@ -105,10 +105,11 @@ Use the `type-enum` list and `prompt.questions.type.enum` descriptions to select
 ### Review and Merge Process
 When a child item signals completion, you MUST follow this process:
 
-**Step 1: Update Checklist**
+**Step 1: Update Checklists**
 1. Review the implementation in the worktree
 2. Check off completed items in `<SCOPE>_CHECKLIST.md`
 3. Verify all acceptance criteria are met
+4. **Update parent checklist**: If this scope has a parent, check off the corresponding item in the parent's `<PARENT_SCOPE>_CHECKLIST.md`
 
 **Step 2: Populate Review Document**
 1. Review the code thoroughly

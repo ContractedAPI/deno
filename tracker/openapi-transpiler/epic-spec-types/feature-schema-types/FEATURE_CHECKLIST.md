@@ -16,7 +16,7 @@ gantt
 
 > **Note**: Tasks will be defined when this feature is commenced.
 
-- [ ] Implement JSON serializable types
+- [x] Implement JSON serializable types
 - [ ] Implement FromSchema wrapper with `& JSONObject` correction
 - [ ] Create mod.ts with public exports
 - [ ] Add JSDoc documentation
