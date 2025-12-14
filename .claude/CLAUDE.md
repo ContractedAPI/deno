@@ -123,11 +123,60 @@ REVIEW.md structure (PM populates):
 [Justification]
 ```
 
+## Post-Task Verification
+
+**After each task completion, verify agent constraints were followed:**
+
+```bash
+# 1. Check base repo is still on main
+git branch --show-current  # Must show: main
+
+# 2. Check worktree list (all development should be in worktrees)
+git worktree list
+
+# 3. Verify coding agent worked in correct worktree
+# Review agent output - should show cd to .worktrees/ directory
+
+# 4. Verify PM didn't create branches in base repo
+# PM should only create branches via worktrees (git worktree add -b)
+```
+
+**Common Violations to Watch For:**
+
+1. **Coding agent working in base repo** - Should always be in `.worktrees/`
+2. **PM creating feature branch in base repo** - Should create feature worktree instead
+3. **Base repo not on main** - Critical violation, immediately fix with `git checkout main`
+
+## PM Merge Process Clarification
+
+**For Task → Feature merges:**
+1. Create feature worktree if it doesn't exist: `git worktree add -b <feature-branch> <feature-worktree-path>`
+2. Navigate to feature worktree
+3. Merge task branch: `git merge --no-ff <task-branch> -m "merge: <description>"`
+4. Remove task worktree
+5. Commit tracker updates in feature worktree
+
+**For Feature → Epic / Epic → Project merges:**
+- Same pattern: Create parent worktree if needed, merge in parent worktree
+
+**For Project → main merges (ONLY exception):**
+1. Ensure base repo is on `main`
+2. Merge project branch in base repo
+3. Remove project worktree
+
+**CRITICAL:** The base repo should ONLY be used for project-to-main merges. All other merges happen in parent worktrees.
+
 ## Troubleshooting
 
-**If you accidentally change base repo branch:**
+**If base repo accidentally changed branch:**
 ```bash
 git checkout main
+```
+
+**If PM created feature branch in base repo instead of worktree:**
+```bash
+# Fix: Create the feature worktree properly
+git worktree add C:\Users\smart\Documents\Repos\ContractedAPI\deno.worktrees\<FeaturePath> <feature-branch>
 ```
 
 **If coding agent works outside worktree:**
