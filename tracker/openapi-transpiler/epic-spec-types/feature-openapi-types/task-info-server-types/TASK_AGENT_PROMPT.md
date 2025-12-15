@@ -1,6 +1,6 @@
 # Task: info-server-types - Agent Prompt
 
-> **Worktree Location**: (to be created when work commences)
+> **Worktree Location**: `C:\Users\smart\Documents\Repos\ContractedAPI\deno.worktrees\OpenapiTranspiler.EpicSpecTypes.FeatureOpenapiTypes.TaskInfoServerTypes`
 > **Root Project Location**: `C:\Users\smart\Documents\Repos\ContractedAPI\deno`
 > **Branch**: `openapi-transpiler/epic-spec-types/feature-openapi-types/task-info-server-types/task`
 
