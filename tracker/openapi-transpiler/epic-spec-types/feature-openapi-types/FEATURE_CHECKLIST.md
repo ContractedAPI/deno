@@ -15,16 +15,19 @@ gantt
 
 ## Task Checklist
 
-> **Note**: Tasks will be defined when this feature is commenced.
-
-- [ ] Implement InfoObject, ServerObject, TagObject types
-- [ ] Implement ComponentsObject type
-- [ ] Implement ReferenceObject with type guard
-- [ ] Implement ParameterObject, RequestBodyObject, ResponseObject
-- [ ] Implement SecuritySchemeObject and related types
-- [ ] Implement HttpMethod type
-- [ ] Implement helper type guards
-- [ ] Add JSDoc documentation
+- [x] [task-info-server-types](./task-info-server-types/) - InfoObject, ServerObject, TagObject types
+  - Branch: `openapi-transpiler/epic-spec-types/feature-openapi-types/task-info-server-types/task`
+  - Worktree: `OpenapiTranspiler.EpicSpecTypes.FeatureOpenapiTypes.TaskInfoServerTypes`
+  - Status: APPROVED
+- [ ] [task-component-types](./task-component-types/) - ComponentsObject, ReferenceObject, HttpMethod types
+  - Branch: `openapi-transpiler/epic-spec-types/feature-openapi-types/task-component-types/task`
+  - Worktree: `OpenapiTranspiler.EpicSpecTypes.FeatureOpenapiTypes.TaskComponentTypes`
+- [ ] [task-request-response-types](./task-request-response-types/) - ParameterObject, RequestBodyObject, ResponseObject, SecuritySchemeObject
+  - Branch: `openapi-transpiler/epic-spec-types/feature-openapi-types/task-request-response-types/task`
+  - Worktree: `OpenapiTranspiler.EpicSpecTypes.FeatureOpenapiTypes.TaskRequestResponseTypes`
+- [ ] [task-type-guards](./task-type-guards/) - Type guard helpers
+  - Branch: `openapi-transpiler/epic-spec-types/feature-openapi-types/task-type-guards/task`
+  - Worktree: `OpenapiTranspiler.EpicSpecTypes.FeatureOpenapiTypes.TaskTypeGuards`
 
 ## Acceptance Criteria
 
