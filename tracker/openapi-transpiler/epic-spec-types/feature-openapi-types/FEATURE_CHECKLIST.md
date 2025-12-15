@@ -27,9 +27,10 @@ gantt
   - Branch: `openapi-transpiler/epic-spec-types/feature-openapi-types/task-request-response-types/task`
   - Worktree: `OpenapiTranspiler.EpicSpecTypes.FeatureOpenapiTypes.TaskRequestResponseTypes`
   - Status: APPROVED
-- [ ] [task-type-guards](./task-type-guards/) - Type guard helpers
+- [x] [task-type-guards](./task-type-guards/) - Type guard helpers
   - Branch: `openapi-transpiler/epic-spec-types/feature-openapi-types/task-type-guards/task`
   - Worktree: `OpenapiTranspiler.EpicSpecTypes.FeatureOpenapiTypes.TaskTypeGuards`
+  - Status: APPROVED
 
 ## Acceptance Criteria
 
