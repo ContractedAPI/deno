@@ -7,7 +7,7 @@ gantt
     title Epic: spec-types Implementation
     dateFormat  YYYY-MM-DD
     section Foundation
-        feature-schema-types     :fs, 2025-01-01, 3d
+        feature-schema-types     :done, fs, 2025-01-01, 3d
     section OpenAPI
         feature-openapi-types    :fo, after fs, 4d
     section Core
@@ -18,11 +18,12 @@ gantt
 
 ## Feature Checklist
 
-- [ ] **feature-schema-types** - JSON serializable types and FromSchema wrapper
+- [x] **feature-schema-types** - JSON serializable types and FromSchema wrapper
   - Tracker: [feature-schema-types/](./feature-schema-types/)
   - Branch: `openapi-transpiler/epic-spec-types/feature-schema-types/feature`
   - Worktree: `OpenapiTranspiler.EpicSpecTypes.FeatureSchemaTypes`
   - Files: `src/schema/types.ts`, `src/schema/mod.ts`
+  - Status: APPROVED - Ready for merge
 
 - [ ] **feature-openapi-types** - OpenAPI 3.1 compatibility types
   - Tracker: [feature-openapi-types/](./feature-openapi-types/)
