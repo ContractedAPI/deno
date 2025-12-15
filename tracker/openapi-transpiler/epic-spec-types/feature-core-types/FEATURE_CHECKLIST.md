@@ -21,8 +21,8 @@ gantt
 - [x] Implement Contract type
 - [x] Implement ContractCard type
 - [x] Implement ContractCardPath with type guard
-- [ ] Implement SpecObject and PathItemObject
-- [ ] Implement ContractCollection type
+- [x] Implement SpecObject and PathItemObject
+- [x] Implement ContractCollection type
 - [ ] Implement EventsObject and EventDefinition
 - [ ] Create mod.ts with public exports
 - [ ] Add JSDoc documentation
