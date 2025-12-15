@@ -182,16 +182,19 @@ When a child item signals completion, you MUST follow this process:
 
 **Feature → Epic merges:**
 - **STOP after completing Steps 0-2**
+- **Push feature branch to origin** (allows user to compare online)
 - Report completion status and APPROVED verdict to user
 - **WAIT for explicit user approval before merging**
 
 **Epic → Project merges:**
 - **STOP after completing Steps 0-2**
+- **Push epic branch to origin** (allows user to compare online)
 - Report completion status and APPROVED verdict to user
 - **WAIT for explicit user approval before merging**
 
 **Project → Main merges:**
 - **STOP after completing Steps 0-2**
+- **Push project branch to origin** (allows user to compare online)
 - Report completion status and APPROVED verdict to user
 - **WAIT for explicit user approval before merging**
 
