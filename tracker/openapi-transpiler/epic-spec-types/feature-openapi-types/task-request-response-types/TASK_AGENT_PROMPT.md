@@ -1,6 +1,6 @@
 # Task: request-response-types - Agent Prompt
 
-> **Worktree Location**: (to be created when work commences)
+> **Worktree Location**: `C:\Users\smart\Documents\Repos\ContractedAPI\deno.worktrees\OpenapiTranspiler.EpicSpecTypes.FeatureOpenapiTypes.TaskRequestResponseTypes`
 > **Root Project Location**: `C:\Users\smart\Documents\Repos\ContractedAPI\deno`
 > **Branch**: `openapi-transpiler/epic-spec-types/feature-openapi-types/task-request-response-types/task`
 
@@ -10,11 +10,13 @@ You are implementing OpenAPI request/response types for generating OpenAPI outpu
 
 ## Your Task
 
-Extend `src/spec/openapi.ts` with request/response types.
+Replace the placeholder types in `src/spec/openapi.ts` (lines 76-93) with proper request/response type definitions. The placeholders were added in task-component-types and marked with `@internal` JSDoc comments.
+
+**IMPORTANT**: Work in your worktree location, NOT the root project.
 
 ## Implementation
 
-Add to `src/spec/openapi.ts`:
+**Replace** the placeholder types (lines 76-93) in `src/spec/openapi.ts` with:
 
 ```typescript
 /** Parameter location. */
@@ -73,8 +75,8 @@ export type LinkObject = {
   description?: string;
 };
 
-/** Callback definition. */
-export type CallbackObject = Record<string, PathItemObject>;
+/** Callback definition (PathItemObject not yet defined, using placeholder). */
+export type CallbackObject = Record<string, Record<string, unknown>>;
 
 /** Security scheme definition. */
 export type SecuritySchemeObject = {
