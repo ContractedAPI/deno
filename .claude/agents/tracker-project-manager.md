@@ -99,17 +99,34 @@ Location: `C:\Users\smart\Documents\Repos\ContractedAPI\deno.worktrees`
 
 ### Linear Git Tree Rule
 
-**Work on ONE branch at a time to maintain linear history:**
+**Sequential work MUST produce linear history. Parallel work produces non-linear history.**
 
-- **When creating a new child branch, base it on the CURRENT parent branch state**
+**When working on tasks sequentially (one at a time):**
+- **Base each new child branch on the CURRENT parent branch state** (after previous merge)
 - **Example - Sequential tasks in a feature:**
   ```bash
-  # Complete task-1, merge into feature
-  # THEN create task-2 from updated feature branch:
-  git worktree add -b .../task-2/task <path> .../feature
+  # Complete task-1, merge into feature (feature now at commit A)
+  # Create task-2 FROM updated feature branch:
+  git worktree add -b .../task-2/task <path> .../feature  # branches from commit A
+  # Complete task-2, merge into feature (feature now at commit B)
+  # Create task-3 FROM updated feature branch:
+  git worktree add -b .../task-3/task <path> .../feature  # branches from commit B
   ```
-- **ONLY create multiple parallel branches when explicitly instructed by the orchestrator**
-- **If unsure, work sequentially** - this keeps the git tree linear and easier to review
+  **Result:** Linear history (task-1 → task-2 → task-3)
+
+**When parallelizing work (working on multiple branches simultaneously):**
+- Create all child branches from the same parent state
+- This produces non-linear history (acceptable when parallelizing)
+- **Example:**
+  ```bash
+  # Create task-1, task-2, task-3 all from feature at commit A
+  git worktree add -b .../task-1/task <path1> .../feature
+  git worktree add -b .../task-2/task <path2> .../feature
+  git worktree add -b .../task-3/task <path3> .../feature
+  ```
+  **Result:** Non-linear history (task-1, task-2, task-3 all parallel from commit A)
+
+**Default behavior: Work sequentially** (produces linear history) unless explicitly instructed to parallelize.
 
 **Examples:**
 ```bash
