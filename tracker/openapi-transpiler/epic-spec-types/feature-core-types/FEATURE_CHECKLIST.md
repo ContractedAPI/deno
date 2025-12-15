@@ -7,30 +7,23 @@ gantt
     title Feature: core-types Implementation
     dateFormat  YYYY-MM-DD
     section Tasks
-        Specification type       :st, 2025-01-01, 1d
-        Contract types           :ct, after st, 1d
-        Path/Spec object types   :ps, after ct, 1d
-        Events types             :et, after ps, 1d
+        Specification type       :done, st, 2025-01-01, 1d
+        Contract types           :done, ct, after st, 1d
+        Path/Spec object types   :done, ps, after ct, 1d
+        Events types             :done, et, after ps, 1d
 ```
 
 ## Task Checklist
 
-> **Note**: Tasks will be defined when this feature is commenced.
-
-- [ ] Implement Specification type with field aliases
-- [ ] Implement Contract type
-- [ ] Implement ContractCard type
-- [ ] Implement ContractCardPath with type guard
-- [ ] Implement SpecObject and PathItemObject
-- [ ] Implement ContractCollection type
-- [ ] Implement EventsObject and EventDefinition
-- [ ] Create mod.ts with public exports
-- [ ] Add JSDoc documentation
+- [x] [task-spec-type](task-spec-type/TASK_CHECKLIST.md) - Branch: `openapi-transpiler/epic-spec-types/feature-core-types/task-spec-type/task` - [Worktree](C:\Users\smart\Documents\Repos\ContractedAPI\deno.worktrees\OpenapiTranspiler.EpicSpecTypes.FeatureCoreTypes.TaskSpecType)
+- [x] [task-contract-types](task-contract-types/TASK_CHECKLIST.md) - Branch: `openapi-transpiler/epic-spec-types/feature-core-types/task-contract-types/task` - [Worktree](C:\Users\smart\Documents\Repos\ContractedAPI\deno.worktrees\OpenapiTranspiler.EpicSpecTypes.FeatureCoreTypes.TaskContractTypes)
+- [x] [task-path-spec-types](task-path-spec-types/TASK_CHECKLIST.md) - Branch: `openapi-transpiler/epic-spec-types/feature-core-types/task-path-spec-types/task` - [Worktree](C:\Users\smart\Documents\Repos\ContractedAPI\deno.worktrees\OpenapiTranspiler.EpicSpecTypes.FeatureCoreTypes.TaskPathSpecTypes)
+- [x] [task-events-module](task-events-module/TASK_CHECKLIST.md) - Branch: `openapi-transpiler/epic-spec-types/feature-core-types/task-events-module/task` - [Worktree](C:\Users\smart\Documents\Repos\ContractedAPI\deno.worktrees\OpenapiTranspiler.EpicSpecTypes.FeatureCoreTypes.TaskEventsModule)
 
 ## Acceptance Criteria
 
-- [ ] All types compile under `strict: true`
-- [ ] Field aliases correctly typed (both names work)
-- [ ] `isContractCardPath` correctly identifies glob patterns
-- [ ] All ContractedAPI-specific types present
-- [ ] JSDoc comments on all public types
+- [x] All types compile under `strict: true`
+- [x] Field aliases correctly typed (both names work)
+- [x] `isContractCardPath` correctly identifies glob patterns
+- [x] All ContractedAPI-specific types present
+- [x] JSDoc comments on all public types

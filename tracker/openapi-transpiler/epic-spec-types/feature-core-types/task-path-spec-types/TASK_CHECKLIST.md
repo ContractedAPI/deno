@@ -2,14 +2,14 @@
 
 ## Implementation Checklist
 
-- [ ] Define `ContractCollection` type (Record<string, Contract>)
-- [ ] Define `MethodObject` type (ContractCollection or glob pattern)
-- [ ] Define `PathItemObject` type (methods + parameters)
-- [ ] Define `SpecObject` type (paths or glob patterns)
-- [ ] Add JSDoc comments
+- [x] Define `ContractCollection` type (Record<string, Contract>)
+- [x] Define `MethodObject` type (ContractCollection or glob pattern)
+- [x] Define `PathItemObject` type (methods + parameters)
+- [x] Define `SpecObject` type (paths or glob patterns)
+- [x] Add JSDoc comments
 
 ## Acceptance Criteria
 
-- [ ] Supports inline contracts
-- [ ] Supports glob pattern imports
-- [ ] Path parameters handled
+- [x] Supports inline contracts
+- [x] Supports glob pattern imports
+- [x] Path parameters handled
