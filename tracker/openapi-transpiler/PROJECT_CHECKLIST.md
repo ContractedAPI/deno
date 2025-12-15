@@ -54,3 +54,5 @@ gantt
   - Tracker: [epic-mcp/](./epic-mcp/)
   - Branch: `openapi-transpiler/epic-mcp/epic`
   - Worktree: `C:\Users\smart\Documents\Repos\ContractedAPI\deno.worktrees\OpenapiTranspiler.EpicMcp.Epic`
+
+- [ ] Write comprehensive README.md (replace GitHub stub after project matures)
