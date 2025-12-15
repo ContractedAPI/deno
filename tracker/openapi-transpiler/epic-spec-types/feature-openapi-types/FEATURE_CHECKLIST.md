@@ -19,9 +19,10 @@ gantt
   - Branch: `openapi-transpiler/epic-spec-types/feature-openapi-types/task-info-server-types/task`
   - Worktree: `OpenapiTranspiler.EpicSpecTypes.FeatureOpenapiTypes.TaskInfoServerTypes`
   - Status: APPROVED
-- [ ] [task-component-types](./task-component-types/) - ComponentsObject, ReferenceObject, HttpMethod types
+- [x] [task-component-types](./task-component-types/) - ComponentsObject, ReferenceObject, HttpMethod types
   - Branch: `openapi-transpiler/epic-spec-types/feature-openapi-types/task-component-types/task`
   - Worktree: `OpenapiTranspiler.EpicSpecTypes.FeatureOpenapiTypes.TaskComponentTypes`
+  - Status: APPROVED
 - [ ] [task-request-response-types](./task-request-response-types/) - ParameterObject, RequestBodyObject, ResponseObject, SecuritySchemeObject
   - Branch: `openapi-transpiler/epic-spec-types/feature-openapi-types/task-request-response-types/task`
   - Worktree: `OpenapiTranspiler.EpicSpecTypes.FeatureOpenapiTypes.TaskRequestResponseTypes`
