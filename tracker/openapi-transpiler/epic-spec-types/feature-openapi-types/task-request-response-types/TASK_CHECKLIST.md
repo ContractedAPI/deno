@@ -2,21 +2,21 @@
 
 ## Implementation Checklist
 
-- [ ] Define `ParameterLocation` type (path, query, header, cookie)
-- [ ] Define `ParameterObject` type
-- [ ] Define `MediaTypeObject` type
-- [ ] Define `RequestBodyObject` type
-- [ ] Define `ResponseObject` type
-- [ ] Define `HeaderObject` type
-- [ ] Define `SecuritySchemeObject` type (apiKey, http, oauth2, openIdConnect)
-- [ ] Define `SecurityRequirementObject` type
-- [ ] Define `ExampleObject` type
-- [ ] Define `LinkObject` type
-- [ ] Define `CallbackObject` type
-- [ ] Add JSDoc comments
+- [x] Define `ParameterLocation` type (path, query, header, cookie)
+- [x] Define `ParameterObject` type
+- [x] Define `MediaTypeObject` type
+- [x] Define `RequestBodyObject` type
+- [x] Define `ResponseObject` type
+- [x] Define `HeaderObject` type
+- [x] Define `SecuritySchemeObject` type (apiKey, http, oauth2, openIdConnect)
+- [x] Define `SecurityRequirementObject` type
+- [x] Define `ExampleObject` type
+- [x] Define `LinkObject` type
+- [x] Define `CallbackObject` type
+- [x] Add JSDoc comments
 
 ## Acceptance Criteria
 
-- [ ] All types compile
-- [ ] Parameter locations correctly constrained
-- [ ] Security schemes cover all OpenAPI types
+- [x] All types compile
+- [x] Parameter locations correctly constrained
+- [x] Security schemes cover all OpenAPI types
