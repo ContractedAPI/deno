@@ -175,3 +175,33 @@ export type ComponentsObject = {
   links?: Record<string, LinkObject | ReferenceObject>;
   callbacks?: Record<string, CallbackObject | ReferenceObject>;
 };
+
+/** Path item object (placeholder, detailed in core-types). */
+export type PathItemObject = {
+  $ref?: string;
+  summary?: string;
+  description?: string;
+  get?: OperationObject;
+  put?: OperationObject;
+  post?: OperationObject;
+  delete?: OperationObject;
+  options?: OperationObject;
+  head?: OperationObject;
+  patch?: OperationObject;
+  trace?: OperationObject;
+  servers?: ServerObject[];
+  parameters?: (ParameterObject | ReferenceObject)[];
+};
+
+/** Operation object (simplified). */
+export type OperationObject = {
+  operationId?: string;
+  tags?: string[];
+  summary?: string;
+  description?: string;
+  parameters?: (ParameterObject | ReferenceObject)[];
+  requestBody?: RequestBodyObject | ReferenceObject;
+  responses: Record<string, ResponseObject | ReferenceObject>;
+  deprecated?: boolean;
+  security?: SecurityRequirementObject[];
+};
