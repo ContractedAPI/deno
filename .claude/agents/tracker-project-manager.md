@@ -182,18 +182,25 @@ When a child item signals completion, you MUST follow this process:
 
 **Feature → Epic merges:**
 - **STOP after completing Steps 0-2**
-- **Push feature branch to origin** (allows user to compare online)
+- **Rebase branches in hierarchy order** (main > epic > feature):
+  1. Rebase epic onto main
+  2. Rebase feature onto main (not epic - keeps linear history)
+- **Push both branches to origin** (allows user to compare clean tree online)
 - Report completion status and APPROVED verdict to user
 - **WAIT for explicit user approval before merging**
 
 **Epic → Project merges:**
 - **STOP after completing Steps 0-2**
-- **Push epic branch to origin** (allows user to compare online)
+- **Rebase branches in hierarchy order** (main > project > epic):
+  1. Rebase project onto main
+  2. Rebase epic onto main (not project - keeps linear history)
+- **Push both branches to origin** (allows user to compare clean tree online)
 - Report completion status and APPROVED verdict to user
 - **WAIT for explicit user approval before merging**
 
 **Project → Main merges:**
 - **STOP after completing Steps 0-2**
+- **Rebase project onto main**
 - **Push project branch to origin** (allows user to compare online)
 - Report completion status and APPROVED verdict to user
 - **WAIT for explicit user approval before merging**
