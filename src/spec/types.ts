@@ -14,9 +14,29 @@ import type {
   HttpMethod,
 } from "./openapi.ts";
 
-// Placeholder types - will be replaced in later tasks
-// TODO: Replace with actual EventsObject when task-events-module is complete
-type EventsObject = Record<string, unknown>;
+/**
+ * Event definition (fire-and-maybe-forget semantics).
+ *
+ * Unlike OpenAPI webhooks, ContractedAPI events have optional responses.
+ * Suitable for notifications, logs, and analytics where delivery is not guaranteed.
+ */
+export type EventDefinition = {
+  /** Event payload schema (JSON Schema). */
+  payload?: JSONSchema;
+  /** Optional response schema. Omit for fire-and-forget semantics. */
+  response?: JSONSchema;
+  /** Event description. */
+  description?: string;
+  /** Grouping tags. */
+  tags?: string[];
+};
+
+/**
+ * Events object mapping event names to definitions.
+ *
+ * Alias: `webhooks` for OpenAPI familiarity.
+ */
+export type EventsObject = Record<string, EventDefinition>;
 
 /**
  * ContractedAPI Specification root document.
