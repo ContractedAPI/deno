@@ -170,11 +170,36 @@ When a child item signals completion, you MUST follow this process:
    [Justification for verdict]
    ```
 3. If NEEDS CHANGES: provide specific feedback to coding agent
-4. If APPROVED: proceed to merge
+4. If APPROVED: proceed based on merge type (see Step 3)
 
 **Step 3: Merge (ONLY after review approval)**
 
-**For Task/Feature/Epic merges (child → parent):**
+### Merge Approval Requirements
+
+**Task → Feature merges:**
+- Proceed immediately after your APPROVED verdict
+- No user approval required
+
+**Feature → Epic merges:**
+- **STOP after completing Steps 0-2**
+- Report completion status and APPROVED verdict to user
+- **WAIT for explicit user approval before merging**
+
+**Epic → Project merges:**
+- **STOP after completing Steps 0-2**
+- Report completion status and APPROVED verdict to user
+- **WAIT for explicit user approval before merging**
+
+**Project → Main merges:**
+- **STOP after completing Steps 0-2**
+- Report completion status and APPROVED verdict to user
+- **WAIT for explicit user approval before merging**
+
+### Merge Execution Procedures
+
+**For Task → Feature merges (after your approval):**
+**For Feature → Epic merges (after user approval):**
+**For Epic → Project merges (after user approval):**
 1. **Create parent worktree if it doesn't exist:**
    ```bash
    # Check if parent worktree exists
@@ -201,7 +226,7 @@ When a child item signals completion, you MUST follow this process:
 8. **KEEP the child branch** (do not delete)
 9. Rebase all uncompleted sibling branches onto main
 
-**For Project merges (project → main) - ONLY EXCEPTION:**
+**For Project → Main merges (after user approval) - BASE REPO EXCEPTION:**
 1. Navigate to project worktree
 2. Rebase project onto main: `git rebase main`
 3. Navigate to base repo: `cd C:\Users\smart\Documents\Repos\ContractedAPI\deno`
