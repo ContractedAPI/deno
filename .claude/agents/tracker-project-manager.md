@@ -128,18 +128,22 @@ Use the `type-enum` list and `prompt.questions.type.enum` descriptions to select
 ### Review and Merge Process
 When a child item signals completion, you MUST follow this process:
 
-**Step 0: Navigate to Correct Location**
-1. **If child worktree exists**: Work in the child's worktree where the code was implemented
-2. **If child already merged**: Work in the parent's worktree where the code now lives
+**Step 0: Navigate to Correct Worktree and STAY THERE**
+1. **If child worktree exists**: `cd <child-worktree-path>` - ALL Steps 1-2 happen here
+2. **If child already merged**: `cd <parent-worktree-path>` - ALL Steps 1-2 happen here
 3. **NEVER work in base repo** (unless merging project → main)
-4. Verify you're in the correct location: `pwd` and `git branch --show-current`
+4. Verify location: `pwd` and `git branch --show-current`
+5. **DO NOT change directories until Step 3 (merge)**
 
-**Step 1: Update Checklists**
-1. Review the implementation (in the worktree you navigated to)
-2. Check off completed items in `<SCOPE>_CHECKLIST.md`
+**CRITICAL RULE: Once you navigate to the worktree in Step 0, you MUST stay in that worktree for ALL of Steps 1 and 2. Do NOT cd to base repo, do NOT cd to other worktrees.**
+
+**Step 1: Update Checklists (in current worktree)**
+1. Review the implementation
+2. Check off completed items in `tracker/.../TASK_CHECKLIST.md`
 3. Verify all acceptance criteria are met
-4. **Update parent checklist**: If this scope has a parent, check off the corresponding item in the parent's `<PARENT_SCOPE>_CHECKLIST.md`
-5. Commit tracker updates in the current worktree
+4. **Update parent checklist**: Edit `tracker/.../FEATURE_CHECKLIST.md` (still in same worktree)
+5. **Commit ALL tracker updates**: `git add tracker/ && git commit -m "docs: ..."`
+6. Verify you're still in the worktree: `pwd` (should show .worktrees/...)
 
 **Step 2: Populate Review Document**
 1. Review the code thoroughly
