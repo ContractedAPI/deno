@@ -17,7 +17,7 @@ gantt
 
 > **Note**: Tasks will be defined when this feature is commenced.
 
-- [ ] Implement Specification type with field aliases
+- [x] Implement Specification type with field aliases
 - [ ] Implement Contract type
 - [ ] Implement ContractCard type
 - [ ] Implement ContractCardPath with type guard
