@@ -2,14 +2,14 @@
 
 ## Implementation Checklist
 
-- [ ] Create `src/spec/helpers.ts`
-- [ ] Implement `isReferenceObject` type guard
-- [ ] Define `PathItemObject` type in openapi.ts
-- [ ] Add JSDoc with examples
-- [ ] Export from helpers.ts
+- [x] Create `src/spec/helpers.ts`
+- [x] Implement `isReferenceObject` type guard
+- [x] Define `PathItemObject` type in openapi.ts
+- [x] Add JSDoc with examples
+- [x] Export from helpers.ts
 
 ## Acceptance Criteria
 
-- [ ] Type guard correctly identifies $ref objects
-- [ ] Type guard narrows type correctly
-- [ ] PathItemObject defined for callbacks
+- [x] Type guard correctly identifies $ref objects
+- [x] Type guard narrows type correctly
+- [x] PathItemObject defined for callbacks
