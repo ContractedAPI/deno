@@ -20,7 +20,9 @@ gantt
 - [x] Implement FromSchema wrapper with `& JSONObject` correction
   - Branch: `openapi-transpiler/epic-spec-types/feature-schema-types/task-from-schema/task`
   - [task-from-schema](./task-from-schema/)
-- [ ] Create mod.ts with public exports
+- [x] Create mod.ts with public exports
+  - Branch: `openapi-transpiler/epic-spec-types/feature-schema-types/task-module-exports/task`
+  - [task-module-exports](./task-module-exports/)
 - [ ] Add JSDoc documentation
 
 ## Acceptance Criteria
@@ -28,5 +30,5 @@ gantt
 - [ ] All types compile under `strict: true`
 - [ ] `FromSchema` correctly infers types from `as const` schemas
 - [ ] `JSONObject` intersection applied to object types
-- [ ] Re-exports organized in `mod.ts`
+- [x] Re-exports organized in `mod.ts`
 - [ ] JSDoc comments on all public types
