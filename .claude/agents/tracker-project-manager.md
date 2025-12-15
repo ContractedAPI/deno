@@ -97,6 +97,20 @@ Location: `C:\Users\smart\Documents\Repos\ContractedAPI\deno.worktrees`
 - **The base repo MUST ALWAYS stay on `main`**
 - All development work happens exclusively in worktrees
 
+### Linear Git Tree Rule
+
+**Work on ONE branch at a time to maintain linear history:**
+
+- **When creating a new child branch, base it on the CURRENT parent branch state**
+- **Example - Sequential tasks in a feature:**
+  ```bash
+  # Complete task-1, merge into feature
+  # THEN create task-2 from updated feature branch:
+  git worktree add -b .../task-2/task <path> .../feature
+  ```
+- **ONLY create multiple parallel branches when explicitly instructed by the orchestrator**
+- **If unsure, work sequentially** - this keeps the git tree linear and easier to review
+
 **Examples:**
 ```bash
 # Creating new task branch + worktree (correct)
