@@ -98,6 +98,7 @@ Location: `C:\Users\smart\Documents\Repos\ContractedAPI\deno.worktrees`
   ```
 - **NEVER change the branch of the base repo at `C:\Users\smart\Documents\Repos\ContractedAPI\deno`**
 - **The base repo MUST ALWAYS stay on `main`**
+- **NEVER modify tracker documentation in the base repo** - all tracker updates must happen in worktrees
 - All development work happens exclusively in worktrees
 
 ### Linear Git Tree Rule
