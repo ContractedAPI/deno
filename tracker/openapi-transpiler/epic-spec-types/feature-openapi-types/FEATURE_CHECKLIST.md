@@ -34,7 +34,7 @@ gantt
 
 ## Acceptance Criteria
 
-- [ ] All types compile under `strict: true`
-- [ ] Type guards correctly identify reference objects
-- [ ] All OpenAPI 3.1 core types present
-- [ ] JSDoc comments on all public types
+- [x] All types compile under `strict: true`
+- [x] Type guards correctly identify reference objects
+- [x] All OpenAPI 3.1 core types present
+- [x] JSDoc comments on all public types
