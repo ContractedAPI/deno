@@ -23,9 +23,10 @@ gantt
   - Branch: `openapi-transpiler/epic-spec-types/feature-openapi-types/task-component-types/task`
   - Worktree: `OpenapiTranspiler.EpicSpecTypes.FeatureOpenapiTypes.TaskComponentTypes`
   - Status: APPROVED
-- [ ] [task-request-response-types](./task-request-response-types/) - ParameterObject, RequestBodyObject, ResponseObject, SecuritySchemeObject
+- [x] [task-request-response-types](./task-request-response-types/) - ParameterObject, RequestBodyObject, ResponseObject, SecuritySchemeObject
   - Branch: `openapi-transpiler/epic-spec-types/feature-openapi-types/task-request-response-types/task`
   - Worktree: `OpenapiTranspiler.EpicSpecTypes.FeatureOpenapiTypes.TaskRequestResponseTypes`
+  - Status: APPROVED
 - [ ] [task-type-guards](./task-type-guards/) - Type guard helpers
   - Branch: `openapi-transpiler/epic-spec-types/feature-openapi-types/task-type-guards/task`
   - Worktree: `OpenapiTranspiler.EpicSpecTypes.FeatureOpenapiTypes.TaskTypeGuards`
