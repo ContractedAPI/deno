@@ -165,6 +165,36 @@ git worktree list
 2. **Spawn the agent with instructions to fix the problem** (tests the config fix)
 3. **Do NOT fix the problem yourself**
 
+## After Committing Agent Config Changes
+
+**CRITICAL: Whenever you commit changes to `.claude/agents/` or `.claude/CLAUDE.md`:**
+
+1. **Identify all active worktrees:**
+   ```bash
+   git worktree list
+   ```
+
+2. **Have PM rebase each worktree onto main:**
+   - This ensures all branches get the updated agent configs
+   - Use PM agent to perform the rebases
+   - Check for conflicts and resolve if needed
+
+**Example workflow:**
+```
+You commit: agents: fix PM worktree rule
+↓
+git worktree list shows: feature-schema-types worktree
+↓
+Spawn PM: "Rebase feature-schema-types onto main"
+↓
+Feature branch now has updated PM config
+```
+
+**Why this matters:**
+- Agent configs in main won't affect work in feature branches until rebased
+- Without rebase, feature branches use old (potentially buggy) agent configs
+- Rebase ensures consistency across all active development
+
 ## PM Merge Process Clarification
 
 **For Task → Feature merges:**
