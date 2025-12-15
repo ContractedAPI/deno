@@ -73,24 +73,95 @@ export type HttpMethod =
   | "options"
   | "trace";
 
-// Forward declarations for ComponentsObject (defined in next task)
-// These are placeholder types that will be properly defined later
-/** @internal Placeholder - full definition in task-request-response-types */
-export type ResponseObject = Record<string, unknown>;
-/** @internal Placeholder - full definition in task-request-response-types */
-export type ParameterObject = Record<string, unknown>;
-/** @internal Placeholder - full definition in task-request-response-types */
-export type ExampleObject = Record<string, unknown>;
-/** @internal Placeholder - full definition in task-request-response-types */
-export type RequestBodyObject = Record<string, unknown>;
-/** @internal Placeholder - full definition in task-request-response-types */
-export type HeaderObject = Record<string, unknown>;
-/** @internal Placeholder - full definition in task-request-response-types */
-export type SecuritySchemeObject = Record<string, unknown>;
-/** @internal Placeholder - full definition in task-request-response-types */
-export type LinkObject = Record<string, unknown>;
-/** @internal Placeholder - full definition in task-request-response-types */
-export type CallbackObject = Record<string, unknown>;
+/** Parameter location. */
+export type ParameterLocation = "path" | "query" | "header" | "cookie";
+
+/** Parameter definition. */
+export type ParameterObject = {
+  name: string;
+  in: ParameterLocation;
+  description?: string;
+  required?: boolean;
+  deprecated?: boolean;
+  schema?: JSONSchema | ReferenceObject;
+  example?: unknown;
+};
+
+/** Media type definition. */
+export type MediaTypeObject = {
+  schema?: JSONSchema | ReferenceObject;
+  example?: unknown;
+  examples?: Record<string, ExampleObject | ReferenceObject>;
+};
+
+/** Request body definition. */
+export type RequestBodyObject = {
+  description?: string;
+  required?: boolean;
+  content: Record<string, MediaTypeObject>;
+};
+
+/** Response definition. */
+export type ResponseObject = {
+  description: string;
+  headers?: Record<string, HeaderObject | ReferenceObject>;
+  content?: Record<string, MediaTypeObject>;
+  links?: Record<string, LinkObject | ReferenceObject>;
+};
+
+/** Header definition. */
+export type HeaderObject = Omit<ParameterObject, "name" | "in">;
+
+/** Example definition. */
+export type ExampleObject = {
+  summary?: string;
+  description?: string;
+  value?: unknown;
+  externalValue?: string;
+};
+
+/** Link definition. */
+export type LinkObject = {
+  operationRef?: string;
+  operationId?: string;
+  parameters?: Record<string, unknown>;
+  requestBody?: unknown;
+  description?: string;
+};
+
+/** Callback definition (PathItemObject not yet defined, using placeholder). */
+export type CallbackObject = Record<string, Record<string, unknown>>;
+
+/** Security scheme definition. */
+export type SecuritySchemeObject = {
+  type: "apiKey" | "http" | "oauth2" | "openIdConnect";
+  description?: string;
+  name?: string;
+  in?: "query" | "header" | "cookie";
+  scheme?: string;
+  bearerFormat?: string;
+  flows?: OAuthFlowsObject;
+  openIdConnectUrl?: string;
+};
+
+/** OAuth flows. */
+export type OAuthFlowsObject = {
+  implicit?: OAuthFlowObject;
+  password?: OAuthFlowObject;
+  clientCredentials?: OAuthFlowObject;
+  authorizationCode?: OAuthFlowObject;
+};
+
+/** OAuth flow. */
+export type OAuthFlowObject = {
+  authorizationUrl?: string;
+  tokenUrl?: string;
+  refreshUrl?: string;
+  scopes: Record<string, string>;
+};
+
+/** Security requirement. */
+export type SecurityRequirementObject = Record<string, string[]>;
 
 /** Reusable components container. */
 export type ComponentsObject = {
