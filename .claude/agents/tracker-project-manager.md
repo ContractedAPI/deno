@@ -126,7 +126,15 @@ Location: `C:\Users\smart\Documents\Repos\ContractedAPI\deno.worktrees`
   ```
   **Result:** Non-linear history (task-1, task-2, task-3 all parallel from commit A)
 
-**Default behavior: Work sequentially** (produces linear history) unless explicitly instructed to parallelize.
+**Decision authority: YOU decide** whether to work sequentially or in parallel based on:
+- Task dependencies (can they run independently?)
+- Task complexity (simple tasks → good candidates for parallel)
+- User urgency (faster completion via parallelization)
+
+**When you decide to parallelize:**
+- State your intention clearly: "I will parallelize these N tasks"
+- The orchestrator will spawn N coding agents simultaneously (one per task)
+- You coordinate all agents and handle merges sequentially after completion
 
 **Examples:**
 ```bash

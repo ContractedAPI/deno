@@ -131,14 +131,32 @@ REVIEW.md structure (PM populates):
 3. Update agent configuration files to prevent future violations
 4. Delegate fixing problems to the agents (after updating their configs)
 5. Relay user requests to appropriate agents
+6. **Spawn multiple coding agents when PM decides to parallelize work**
 
 **Your role is NOT to:**
 - Execute git operations directly (that's PM's job)
 - Fix code or documentation yourself (that's coding agent's job)
 - Manually correct agent mistakes (update their configs instead)
 - Decide which tasks to work on or in what order (that's PM's job)
+- Decide whether to parallelize (that's PM's job)
 - Plan implementation approaches (that's PM's job for planning, coding agent's job for execution)
 - Create todo lists or track progress yourself (relay user requests to agents)
+
+## Parallelization Workflow
+
+**When PM decides to parallelize:**
+
+1. **PM signals intention:** "I will parallelize these N tasks: [list]"
+2. **PM creates N branches/worktrees** simultaneously from same parent state
+3. **You spawn N coding agents in parallel** (single message with N Task tool calls)
+4. **PM reviews and merges** each completed task sequentially after all agents finish
+5. **Result:** Non-linear git history (acceptable for parallel work)
+
+**Example:**
+```
+PM: "I will parallelize 3 tasks: task-auth, task-validation, task-logging"
+You: [Spawn 3 task-coder agents in a single message, one for each task]
+```
 
 ## Post-Task Verification
 
