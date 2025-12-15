@@ -2,13 +2,13 @@
 
 ## Implementation Checklist
 
-- [ ] Create `src/schema/mod.ts`
-- [ ] Export all types from `./types.ts`
-- [ ] Organize exports with comments
-- [ ] Verify all types are accessible via mod.ts
+- [x] Create `src/schema/mod.ts`
+- [x] Export all types from `./types.ts`
+- [x] Organize exports with comments
+- [x] Verify all types are accessible via mod.ts
 
 ## Acceptance Criteria
 
-- [ ] All public types exported
-- [ ] Imports work: `import { FromSchema, JSONSchema } from "./schema/mod.ts"`
-- [ ] No missing exports
+- [x] All public types exported
+- [x] Imports work: `import { FromSchema, JSONSchema } from "./schema/mod.ts"`
+- [x] No missing exports
