@@ -25,11 +25,12 @@ gantt
   - Files: `src/schema/types.ts`, `src/schema/mod.ts`
   - Status: APPROVED - Ready for merge
 
-- [ ] **feature-openapi-types** - OpenAPI 3.1 compatibility types
+- [x] **feature-openapi-types** - OpenAPI 3.1 compatibility types
   - Tracker: [feature-openapi-types/](./feature-openapi-types/)
   - Branch: `openapi-transpiler/epic-spec-types/feature-openapi-types/feature`
   - Worktree: `OpenapiTranspiler.EpicSpecTypes.FeatureOpenapiTypes`
   - Files: `src/spec/openapi.ts`, `src/spec/helpers.ts`
+  - Status: APPROVED - Ready for merge
 
 - [ ] **feature-core-types** - ContractedAPI-specific types
   - Tracker: [feature-core-types/](./feature-core-types/)
