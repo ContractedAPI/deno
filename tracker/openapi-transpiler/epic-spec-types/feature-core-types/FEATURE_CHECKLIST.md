@@ -18,9 +18,9 @@ gantt
 > **Note**: Tasks will be defined when this feature is commenced.
 
 - [x] Implement Specification type with field aliases
-- [ ] Implement Contract type
-- [ ] Implement ContractCard type
-- [ ] Implement ContractCardPath with type guard
+- [x] Implement Contract type
+- [x] Implement ContractCard type
+- [x] Implement ContractCardPath with type guard
 - [ ] Implement SpecObject and PathItemObject
 - [ ] Implement ContractCollection type
 - [ ] Implement EventsObject and EventDefinition
