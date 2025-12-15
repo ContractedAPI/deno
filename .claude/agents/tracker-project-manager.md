@@ -222,9 +222,13 @@ When a child item signals completion, you MUST follow this process:
    ```bash
    git merge --ff-only <child-branch>
    ```
-7. Delete child worktree: `git worktree remove <child-worktree-path>`
-8. **KEEP the child branch** (do not delete)
-9. Rebase all uncompleted sibling branches onto main
+7. **Push child branch to origin** (preserve audit trail):
+   ```bash
+   git push origin <child-branch>
+   ```
+8. Delete child worktree: `git worktree remove <child-worktree-path>`
+9. Delete child branch locally: `git branch -d <child-branch>`
+10. Rebase all uncompleted sibling branches onto main
 
 **For Project → Main merges (after user approval) - BASE REPO EXCEPTION:**
 1. Navigate to project worktree
@@ -232,8 +236,12 @@ When a child item signals completion, you MUST follow this process:
 3. Navigate to base repo: `cd C:\Users\smart\Documents\Repos\ContractedAPI\deno`
 4. Ensure on main: `git branch --show-current` (should be `main`)
 5. Fast-forward merge: `git merge --ff-only <project-branch>`
-6. Delete project worktree: `git worktree remove <project-worktree-path>`
-7. **KEEP the project branch** (do not delete)
+6. **Push project branch to origin** (preserve audit trail):
+   ```bash
+   git push origin <project-branch>
+   ```
+7. Delete project worktree: `git worktree remove <project-worktree-path>`
+8. Delete project branch locally: `git branch -d <project-branch>`
 
 **Merge Conflict Resolution:**
 - During rebase: Resolve conflicts, `git rebase --continue`
