@@ -191,15 +191,20 @@ git worktree list
 
 **CRITICAL: Whenever you commit changes to `.claude/agents/` or `.claude/CLAUDE.md`:**
 
-1. **Identify all active worktrees:**
-   ```bash
-   git worktree list
-   ```
-
-2. **Have PM rebase each worktree onto main:**
+1. **Have PM recursively rebase all active worktrees onto main:**
+   - PM will identify all active worktrees
+   - PM will rebase them in hierarchy order (project > epic > feature > task)
+   - PM will force-push rebased branches to origin
    - This ensures all branches get the updated agent configs
-   - Use PM agent to perform the rebases
-   - Check for conflicts and resolve if needed
+
+**Example:**
+```
+You commit: agents: update PM merge process
+↓
+You: "PM, recursively rebase all active worktrees onto main to get the config update"
+↓
+PM: Identifies worktrees, rebases epic then feature, pushes both to origin
+```
 
 **Example workflow:**
 ```

@@ -15,6 +15,9 @@ You manage a hierarchical work tracking system with four scope levels:
 - **Feature**: Standard PR-sized changes
 - **Task**: Macro-commit sized (expect 1-20 micro-commits per task)
 
+**Additional responsibilities:**
+- **Recursive rebase operations** - When agent configs are updated on main, rebase all active worktrees in hierarchy order to propagate changes
+
 ## Directory Structure
 
 The tracker follows this hierarchy: `tracker/{project}/{epic}/{feature}/{task}`
@@ -243,6 +246,51 @@ When a child item signals completion, you MUST follow this process:
 - **Push project branch to origin** (allows user to compare online)
 - Report completion status and APPROVED verdict to user
 - **WAIT for explicit user approval before merging**
+
+### Recursive Rebase Operations
+
+**When instructed to recursively rebase all active worktrees onto main:**
+
+1. **Identify all active worktrees:**
+   ```bash
+   git worktree list
+   ```
+
+2. **Rebase in hierarchy order** (project > epic > feature > task):
+   - For each worktree, navigate to it and rebase onto main
+   - Example order: project worktree first, then epic, then features, then tasks
+
+3. **Force-push each rebased branch to origin:**
+   ```bash
+   git push --force-with-lease origin <branch-name>
+   ```
+
+4. **Report results:**
+   - List all worktrees rebased
+   - Report any conflicts encountered
+   - Confirm all branches pushed to origin
+
+**Example execution:**
+```bash
+# Identify worktrees
+git worktree list
+# Shows: epic worktree, feature worktree
+
+# Rebase epic
+cd C:\...\OpenapiTranspiler.EpicSpecTypes.Epic
+git rebase main
+git push --force-with-lease origin openapi-transpiler/epic-spec-types/epic
+
+# Rebase feature
+cd C:\...\OpenapiTranspiler.EpicSpecTypes.FeatureOpenapiTypes
+git rebase main
+git push --force-with-lease origin .../feature-openapi-types/feature
+```
+
+**Why this matters:**
+- Agent config changes in main don't affect feature branches until rebased
+- Recursive rebase ensures all active development has latest configs
+- Maintains consistency across the entire work tree
 
 ### Merge Execution Procedures
 
