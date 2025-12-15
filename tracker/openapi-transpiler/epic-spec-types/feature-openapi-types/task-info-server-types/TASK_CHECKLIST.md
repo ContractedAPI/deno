@@ -2,18 +2,18 @@
 
 ## Implementation Checklist
 
-- [ ] Create `src/spec/openapi.ts`
-- [ ] Define `ContactObject` (name?, email?, url?)
-- [ ] Define `LicenseObject` (name, url?)
-- [ ] Define `InfoObject` (title, version, description?, contact?, license?)
-- [ ] Define `ServerVariableObject` (enum?, default, description?)
-- [ ] Define `ServerObject` (url, description?, variables?)
-- [ ] Define `TagObject` (name, description?, externalDocs?)
-- [ ] Define `ExternalDocumentationObject` (url, description?)
-- [ ] Add JSDoc comments to all types
+- [x] Create `src/spec/openapi.ts`
+- [x] Define `ContactObject` (name?, email?, url?)
+- [x] Define `LicenseObject` (name, url?)
+- [x] Define `InfoObject` (title, version, description?, contact?, license?)
+- [x] Define `ServerVariableObject` (enum?, default, description?)
+- [x] Define `ServerObject` (url, description?, variables?)
+- [x] Define `TagObject` (name, description?, externalDocs?)
+- [x] Define `ExternalDocumentationObject` (url, description?)
+- [x] Add JSDoc comments to all types
 
 ## Acceptance Criteria
 
-- [ ] All types compile under `strict: true`
-- [ ] Optional fields correctly marked
-- [ ] JSDoc comments present
+- [x] All types compile under `strict: true`
+- [x] Optional fields correctly marked
+- [x] JSDoc comments present
