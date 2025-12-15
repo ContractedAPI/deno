@@ -293,6 +293,49 @@ git push --force-with-lease origin .../feature-openapi-types/feature
 - Recursive rebase ensures all active development has latest configs
 - Maintains consistency across the entire work tree
 
+### Git Tree Cleanup and Force-Push Protocol
+
+**CRITICAL: After EVERY branch operation (create, rebase, merge), clean up the git tree and sync with origin.**
+
+**Required after:**
+- Creating new branches/worktrees
+- Rebasing any branch
+- Merging any branches
+- Resetting branch pointers
+
+**Cleanup procedure:**
+
+1. **Check for duplicate commits or parallel branches:**
+   ```bash
+   git log --oneline --graph --all | head -30
+   ```
+   Look for `| *` indicators showing parallel history that shouldn't exist
+
+2. **Fix any duplicates:**
+   - If parent and child branches have duplicate commits with different hashes:
+     - Identify the correct commit in the child's history
+     - Reset parent to point to that commit: `git reset --hard <commit>`
+   - If local task branches still exist after merge:
+     - Delete them: `git branch -D <task-branch>`
+
+3. **Force-push ALL local epic/feature/task branches to origin:**
+   ```bash
+   # For each local branch related to current work:
+   git push --force-with-lease origin <branch-name>
+   ```
+
+4. **Verify cleanup:**
+   ```bash
+   git log --oneline --graph <epic-branch> <feature-branch> | head -20
+   ```
+   Should show clean linear history (no `| *` parallel branches)
+
+**Why this matters:**
+- Rebasing creates new commit hashes, which can leave stale branch pointers
+- Force-pushing keeps remote in sync with local corrected history
+- Prevents git tree from accumulating duplicate/parallel branches
+- Ensures GitHub shows clean linear history
+
 ### Merge Execution Procedures
 
 **For Task → Feature merges (after your approval):**
